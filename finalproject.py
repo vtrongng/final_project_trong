@@ -21,7 +21,6 @@ def main():
 
     tab1, tab2, tab3, tab4 = st.tabs(["Student List", "Data Visualization", "Regression", "Classification"])
     # Filter Data
-    #tesst 
     def class_classify(PYTHON_CLASS):
         if '114' in PYTHON_CLASS:
             return 'Group 114'
@@ -198,6 +197,13 @@ def main():
 
         # Hiển thị biểu đồ trong Streamlit
         st.plotly_chart(fig)
+
+        # Hiển thị danh sách học sinh theo từng nhóm đã phân loại        
+        avg_gpa = df.groupby('Cluster')['GPA'].mean()
+        st.write("Danh sách học sinh theo phân nhóm:")
+        for cluster in range(3):            
+            st.write(f"Nhóm {cluster+1} - Điểm trung bình GPA: {avg_gpa[cluster]:.2f}")
+            st.write(df[df['Cluster'] == cluster])
 
         # Dự đoán và phân loại
         df['AVG_HW'] = df[['S1', 'S2', 'S3', 'S4', 'S5', 'S7', 'S8', 'S9']].mean(axis=1)
