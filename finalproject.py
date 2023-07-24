@@ -217,7 +217,7 @@ def main():
         pass_fail_X = df[['S6', 'AVG_HW']]
         pass_fail_y = df['PASS_MC']
 
-        option = st.selectbox('Chọn loại dự đoán:', ('Dự đoán điểm cuối kỳ', 'Dự đoán GPA', 'Phân loại Pass/Fail'))
+        option = st.selectbox('Chọn loại dự đoán:', ('Dự đoán điểm cuối kỳ', 'Dự đoán GPA', 'Dự đoán Pass/Fail'))
 
         if option == 'Dự đoán điểm cuối kỳ':
             # Hiển thị form để nhập điểm trung bình của homework và midterm
